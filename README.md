@@ -1,24 +1,16 @@
-# README
+# flight-booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project for [The Odin Project: Building Advanced Forms](https://www.theodinproject.com/lessons/building-advanced-forms).
 
-Things you may want to cover:
+## Planning
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Data models
+  - Passenger
+    - has many Bookings
+    - has many Flights through Bookings
+  - Flight
+    - has many Bookings
+    - has many Passengers though Bookings
+  - Booking
+    - belongs to Passenger
+    - belongs to Booking
