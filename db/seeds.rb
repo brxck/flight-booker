@@ -17,7 +17,7 @@ Airport.create(code: 'PHX')
 Airport.create(code: 'MIA')
 
 # Flights
-50.times do
+100.times do
   origin = Airport.all.sample.id
   destination = Airport.all.sample.id
   next if origin == destination
