@@ -21,7 +21,11 @@ Airport.create(code: 'MIA')
   origin = Airport.all.sample.id
   destination = Airport.all.sample.id
   next if origin == destination
-  Flight.create(origin_id: origin,
+  departure_time = rand(Time.now..Time.now + 86_400)
+  arrival_time = departure_time + rand(0..21_600)
+  Flight.create(number: rand(1000...9999),
+                origin_id: origin,
                 destination_id: destination,
-                duration: rand(360))
+                departure_time: departure_time,
+                arrival_time: arrival_time)
 end

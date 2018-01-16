@@ -12,5 +12,19 @@ h1 Flights
 = submit_tag :search
 
 h3 Search Results
-- @flights.each do |flight|
-  div #{flight.origin.code} to #{flight.destination.code} | #{flight.duration} minutes
+table
+  th Flight
+  th Destination
+  th Origin
+  th Departure
+  th Duration
+  th Arrival
+  - @flights.each do |flight|
+    tr
+      td.number = flight.number
+      td.destination = flight.destination.code
+      td.origin = flight.origin.code
+      td.depart = flight.departure_time.strftime("%I:%M %p")
+      td.duration = flight.duration
+      td.arrive = flight.arrival_time.strftime("%I:%M %p")
+  
