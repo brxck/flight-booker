@@ -5,6 +5,6 @@ class Flight < ApplicationRecord
 
   def add_duration
     time_delta = arrival_time - departure_time
-    self.duration = "#{(time_delta / 3600).to_i}h#{(time_delta % 3600 / 60).to_i}m"
+    self.duration = "#{(time_delta / 3600).to_i.abs}h#{(time_delta % 3600 / 60).to_i}m"
   end
 end

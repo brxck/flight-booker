@@ -2,11 +2,14 @@ class FlightsController < ApplicationController
   def search
     # Options for select
     @flight = Flight.new
-    @origins = Flight.all.map{ |x| [x.origin.code, x.origin.id] }
-    @destinations = Flight.all.map{ |x| [x.destination.code, x.destination.id] }
+    @airports = Airport.select('code, id').map { |i| [i.code, i.id] }
 
     # Search results
-    @flights = Flight.where(origin_id:      params[:origin_id],
-                            destination_id: params[:destination_id])
+    if params[:origin_id] && params[:destination_id]
+      @flights = Flight.where(origin_id:      params[:origin_id],
+                              destination_id: params[:destination_id])
+    else
+      @flights = Flight.all
+    end
   end
 end
