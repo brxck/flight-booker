@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Simple Form
+gem 'simple_form'
 # Slim template generators
 gem 'slim-rails'
 
