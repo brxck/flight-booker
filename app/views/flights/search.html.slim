@@ -13,13 +13,17 @@ h1 Flights
 
 = link_to 'reset', root_url
 
-table
-  th Flight
-  th Origin
-  th Destination
-  th Departure
-  th Duration
-  th Arrival
-  = will_paginate @flights
-  = render @flights
+- if @flights.any?
+  table
+    th Flight
+    th Origin
+    th Destination
+    th Departure
+    th Duration
+    th Arrival
+    = will_paginate @flights
+    = render @flights
+- else
+  p No flights found.
   
+= will_paginate @flights
