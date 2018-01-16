@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
       @flights = Flight.where(origin_id:      params[:origin_id],
                               destination_id: params[:destination_id])
     else
-      @flights = Flight.all
+      @flights = Flight.all.paginate(page: params[:page], per_page: 10)
     end
   end
 end
