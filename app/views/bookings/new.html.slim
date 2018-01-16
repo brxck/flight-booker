@@ -1,3 +1,21 @@
 h1 New Booking
 
-= form_for @booking
+div= @flight.number
+
+div Leaving #{@flight.origin.code} at #{@flight.departure_time.strftime("%I:%M %p")}
+div Arriving in #{@flight.destination.code} at #{@flight.arrival_time.strftime("%I:%M %p")}
+div Duration: #{@flight.duration}
+
+= form_for @booking do |booking_form|
+  = booking_form.hidden_field :flight_id, value: params[:flight_id]
+  = booking_form.label :departure_date
+  = booking_form.date_select :date, order: [:month, :day, :year], default: params[:date]
+
+  - i = 0
+  = booking_form.fields_for :passengers do |passenger_fields|
+    p Passenger #{i += 1}
+    = passenger_fields.label :name
+    = passenger_fields.text_field :name
+    = passenger_fields.label :email
+    = passenger_fields.text_field :email
+  = booking_form.submit

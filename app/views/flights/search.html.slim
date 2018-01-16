@@ -6,9 +6,9 @@ h1 Flights
 = label_tag :to
 = select_tag :destination_id, options_for_select(@airports)
 = label_tag :passengers
-= select_tag :passengers, options_for_select((1..4))
+= select_tag :number, options_for_select((1..4))
 = label_tag :date
-= select_date Date.today, prefix: :date, order: %i[month day year], start_year: Date.today.year
+= select_date Date.today, order: %i[month day year], start_year: Date.today.year
 = submit_tag :search
 
 = link_to 'reset', root_url
