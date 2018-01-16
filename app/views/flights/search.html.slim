@@ -20,12 +20,5 @@ table
   th Departure
   th Duration
   th Arrival
-  - @flights.each do |flight|
-    tr
-      td.number = flight.number
-      td.origin = flight.origin.code
-      td.destination = flight.destination.code
-      td.depart = flight.departure_time.strftime("%I:%M %p")
-      td.duration = flight.duration
-      td.arrive = flight.arrival_time.strftime("%I:%M %p")
+  = render @flights
   
