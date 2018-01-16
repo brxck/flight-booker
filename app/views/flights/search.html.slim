@@ -1,0 +1,12 @@
+h1 Flights
+
+= form_tag '/', method: 'get'
+= label_tag :from
+= select_tag :origin_id, options_for_select(@origins)
+= label_tag :to
+= select_tag :origin_id, options_for_select(@destinations)
+= label_tag :passengers
+= select_tag :passengers, options_for_select((1..4))
+= label_tag :date
+= select_date Date.today, prefix: :date, order: %i[month day year]
+= submit_tag :search
