@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
       @flights = @flights.paginate(page: params[:page], per_page: 10)
       @search_params = { date: date_params, number: params[:number] }
     else
-      @flights = Flight.all.paginate(page: params[:page], per_page: 10)
+      @flights = Flight.all.paginate(page: params[:page], per_page: 15)
       @search_params = { date: Date.today, number: 1 }
     end
   end

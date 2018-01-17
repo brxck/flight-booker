@@ -11,13 +11,14 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking
     else
-      flash[:danger] = @booking.errors.full_messages
       redirect_to root_url
     end
   end
 
   def show
     @booking = Booking.find(params[:id])
+    @flight = @booking.flight
+    @passengers = @booking.passengers
   end
 
   private

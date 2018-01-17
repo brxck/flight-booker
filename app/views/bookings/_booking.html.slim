@@ -1,0 +1,4 @@
+div.number Flight #{@flight.number}
+div.leaving Leaving #{@flight.origin.code} at #{@flight.departure_time.strftime("%I:%M %p")}
+div.arriving Arriving in #{@flight.destination.code} at #{@flight.arrival_time.strftime("%I:%M %p")}
+div.duration Duration: #{@flight.duration}
