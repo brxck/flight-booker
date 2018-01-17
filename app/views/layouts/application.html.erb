@@ -9,7 +9,8 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_url, class: :home %>
+    <%= render 'shared/header' %>
+    <br>
     <%= yield %>
   </body>
 </html>

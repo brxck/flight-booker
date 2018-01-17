@@ -1,7 +1,12 @@
-h1 Booking
+div.container
 
-= render @booking
+  h1.title Booking
 
-div Passengers:
-- @passengers.each do |passenger|
-  div.name = passenger.name
+  div.columns
+    div.column
+      = render @booking
+
+    div.column
+      div.label Passengers:
+      - @passengers.each do |passenger|
+        div.name = passenger.name

@@ -1,17 +1,34 @@
-h1 New Booking
+div.container
+  div.columns
+    div.column
+      h1.title New Booking
+      = render @booking
 
-= render @booking
+    div.column
 
-= form_for @booking do |booking_form|
-  = booking_form.hidden_field :flight_id, value: params[:flight_id]
-  = booking_form.label :departure_date
-  = booking_form.date_select :date, order: [:month, :day, :year], default: params[:date]
+      = form_for @booking do |booking_form|
+        = booking_form.hidden_field :flight_id, value: params[:flight_id]
 
-  - i = 0
-  = booking_form.fields_for :passengers do |passenger_fields|
-    p Passenger #{i += 1}
-    = passenger_fields.label :name
-    = passenger_fields.text_field :name
-    = passenger_fields.label :email
-    = passenger_fields.text_field :email
-  = booking_form.submit
+        div.field
+          = booking_form.label :departure_date
+          div.control
+            = booking_form.date_select :date, { order: [:month, :day, :year], default: params[:date] },
+                                              { class: :select }
+
+        - i = 0
+        = booking_form.fields_for :passengers do |passenger_fields|
+          p.label Passenger #{i += 1}
+          
+          div.field
+            = passenger_fields.label :name
+            div.control
+              = passenger_fields.text_field :name
+
+          div.field  
+            = passenger_fields.label :email
+            div.control
+              = passenger_fields.text_field :email
+
+          div.field
+            div.control
+              = booking_form.submit

@@ -1,29 +1,50 @@
-h1 Flights
+div.container
+  div.columns
+    div.column
+      = form_tag '/', method: 'get'
 
-= form_tag '/', method: 'get'
-= label_tag :from
-= select_tag :origin_id, options_for_select(@airports)
-= label_tag :to
-= select_tag :destination_id, options_for_select(@airports)
-= label_tag :passengers
-= select_tag :number, options_for_select((1..4))
-= label_tag :date
-= select_date Date.today, order: %i[month day year], start_year: Date.today.year
-= submit_tag :search
+      div.field
+      = label_tag :from, nil, class: 'label'
+      div.control
+        = select_tag :origin_id, options_for_select(@airports), class: :select
 
-= link_to 'reset', root_url
+      div.field
+      = label_tag :to, nil, class: 'label'
+      div.control
+        = select_tag :destination_id, options_for_select(@airports), class: :select
 
-- if @flights.any?
-  table
-    th Flight
-    th Origin
-    th Destination
-    th Departure
-    th Duration
-    th Arrival
-    = will_paginate @flights
-    = render @flights
-- else
-  p No flights found.
-  
-= will_paginate @flights
+      div.field
+      = label_tag :passengers, nil, class: 'label'
+      div.control
+        = select_tag :number, options_for_select((1..4)), class: :select
+
+      div.field
+      = label_tag :date, nil, class: 'label'
+      div.control
+        = select_date Date.today,
+                    { order: %i[month day year], start_year: Date.today.year },
+                    { class: :select }
+
+      br
+
+      div.field.is-grouped
+        div.control
+          = submit_tag :search, class: 'button is-primary'
+        div.control
+          = link_to 'reset', root_url, class: 'button'
+
+    div.column
+      - if @flights.any?
+        table.table
+          thead
+            th Flight
+            th Origin
+            th Destination
+            th Departure
+            th Duration
+            th Arrival
+          = render @flights
+      - else
+        p No flights found.
+        
+      = will_paginate @flights

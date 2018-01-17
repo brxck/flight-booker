@@ -1,4 +1,4 @@
-div.number Flight #{@flight.number}
-div.leaving Leaving #{@flight.origin.code} at #{@flight.departure_time.strftime("%I:%M %p")}
-div.arriving Arriving in #{@flight.destination.code} at #{@flight.arrival_time.strftime("%I:%M %p")}
-div.duration Duration: #{@flight.duration}
+div.subtitle.is-size-4 Flight #{@flight.number}
+div.is-size-5 Leaving #{@flight.origin.code} at #{@flight.departure_time.strftime("%I:%M %p")}
+div.is-size-5 Arriving in #{@flight.destination.code} at #{@flight.arrival_time.strftime("%I:%M %p")}
+div.is-size-5 Duration: #{@flight.duration}
