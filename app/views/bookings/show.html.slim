@@ -1,1 +1,7 @@
 h1 Booking
+
+= render @booking
+
+div Passengers:
+- @passengers.each do |passenger|
+  div.name = passenger.name
